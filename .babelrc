@@ -1,0 +1,65 @@
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+          "@babel/plugin-transform-runtime"
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+          "@babel/plugin-transform-runtime"
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": [
+              "last 2 versions",
+              "safari >= 7"
+            ]
+          }
+        ],
+        "@babel/preset-react"
+      ],
+      "plugins": [
+          "@babel/plugin-transform-runtime",
+          [
+            "module-name-mapper",
+            {
+                "moduleNameMapper": {
+                  // mock files that would otherwise break tests
+                  "\\.css$": "<rootDir>/src/helpers/empty-mock.js"
+                }
+            }
+        ]
+      ]
+    }
+  }
+    
+}

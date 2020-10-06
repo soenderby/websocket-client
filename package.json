@@ -1,0 +1,58 @@
+{
+  "name": "websocket-client",
+  "version": "0.1.0",
+  "description": "A desktop websocket application",
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "set BROWSER=none && react-scripts start",
+    "build": "react-scripts build",
+    "test": "cross-env NODE_ENV=test riteway -r @babel/register -r @babel/polyfill src/**/*.test.js | tap-nirvana",
+    "eject": "react-scripts eject",
+    "ebuild": "npm run build && node_modules/.bin/build",
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "keywords": [
+    "socket.io",
+    "electron",
+    "react"
+  ],
+  "author": "Jakob Sønderby Kristensen",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/runtime": "^7.10.5",
+    "concurrently": "^5.2.0",
+    "electron": "^9.1.2",
+    "electron-builder": "^22.8.0",
+    "electron-is-dev": "^1.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.3",
+    "socket.io-client": "^2.3.1",
+    "tap-nirvana": "^1.1.0",
+    "wait-on": "^5.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "babel-plugin-module-name-mapper": "^1.2.0",
+    "cross-env": "^7.0.2",
+    "riteway": "^6.1.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
