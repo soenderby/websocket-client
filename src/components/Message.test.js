@@ -38,4 +38,21 @@ describe('Message', async assert => {
       expected: user
     });
   }
+
+  // This test is not really necessary, but i was unsure if this caused an error so i decided to test it.
+  // Now there is no reason to remove it.
+  {
+    const message = {
+      sender: 'Test User',
+      text: 'Test Message'
+    }
+    const $ = render(<Message {...message}/>);
+
+    assert ({
+      given: 'message passed using object destructuring',
+      should: 'render sender and text',
+      actual: Object.assign({}, { sender: $('.SenderName').html().trim() }, { text: $('.MessageText').html().trim() }),
+      expected: message
+    });
+  }
 });

@@ -1,6 +1,8 @@
 import React from 'react';
 
-export default ({text = '', sender=''}) => 
+
+// CSS: Sender and text should be in the same row
+export default ({sender='', text=''}) => 
   <div className="Message">
     <p className="SenderName"> { sender } </p>
     <p className="MessageText"> { text } </p>

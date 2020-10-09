@@ -39,6 +39,21 @@ describe('App', async assert => {
   }
 
   {
+    const message = {
+      sender: "Test Sender",
+      text: "Test Message"
+    }
+    const $ = render(<App messages={[message]}/>);
+
+    assert ({
+      given: 'A message',
+      should: 'pass message text correctly',
+      actual: $('.MessageList').children('.Message').first().children('.MessageText').html().trim(),
+      expected: message.text
+    });
+  }
+
+  {
     const messages = [
       {
         sender: "Test Sender 1",
@@ -56,6 +71,17 @@ describe('App', async assert => {
       should: 'Render MessageList with no Message components',
       actual: $('.MessageList').children('.Message').length,
       expected: 2
+    });
+  }
+
+  {
+    const $ = render(<App/>);
+
+    assert ({
+      given: 'nothing',
+      should: 'Render NavMenu component',
+      actual: $('.NavMenu').length,
+      expected: 1
     });
   }
 });
