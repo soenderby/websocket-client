@@ -17,9 +17,9 @@ describe('NavMenu', async assert => {
 
   {
     const buttons = [
-      { text: 'Button 1' },
-      { text: 'Button 2' },
-      { text: 'Button 3' }
+      'Button 1',
+      'Button 2',
+      'Button 3'
     ]
     const $ = render(<NavMenu buttons={ buttons }/>)
 

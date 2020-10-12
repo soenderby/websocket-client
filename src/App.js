@@ -1,50 +1,43 @@
-import React, { useState } from 'react';
-import Message from './components/Message';
+import React, { useState, useReducer } from 'react';
+import Message from './components/Message/Message';
 import { curriedMap } from './lib/utils';
-import NavMenu from './components/NavMenu';
+import NavMenu from './components/NavMenu/NavMenu';
 import { Grid } from '@material-ui/core';
+import Page from './components/Page/Page';
+import { reducer, changePage } from './reducers/page-reducer';
+import './App.css';
 
 export default ({ messages=[] }) => {
-  const [screen, setScreen] = useState(0);
+  const [page, dispatch] = useReducer(reducer, "FrontPage");
 
   const displayMessages = curriedMap(message => <Message { ...message } key={ message.text }/>);
   
   const buttons = [
-    { text: 'Button one', onClick: '' },
-    { text: 'Button Two', onClick: '' },
-    { text: 'Button Three', onClick: '' },
+    'Button One',
+    'Button Two',
+    'Button Three'
   ]
 
-  const testMessages1 = [
-    {
-      sender: "Test sender",
-      text: "Test Message",
-    },
-    {
-      sender: "Another sender",
-      text: "Another message"
-    }
-  ]
-  
-  const testMessages2 = [
-    {
-      sender: "Another page",
-      text: "Should show this"
-    }
-  ]
+  const testMessages = require('./message-data.json');
+
   // CSS: Many grid items could likely be removed using pure css
   return (
-    <Grid className="App" container justify="center">
+    <Grid className="App" container >
       <Grid item>
         <NavMenu buttons={ buttons }/>
       </Grid>
       <Grid item>
-        <p>{ "Hello World!" }</p>
-        <div className="MessageList">
-          {
-            displayMessages(messages)
-          }
-        </div>
+        <Page>
+          <p>{ "Hello World!" }</p>
+          <div className="MessageList">
+            {
+              displayMessages(messages)
+            }
+            {
+              displayMessages(testMessages)
+            }
+          </div>
+        </Page>
       </Grid>
     </Grid>
   );

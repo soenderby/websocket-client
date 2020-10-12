@@ -1,0 +1,15 @@
+.Message {
+  display: flex;
+}
+
+.Message .SenderName {
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 50px;
+  background: lightblue;
+
+}
+
+.Message .MessageText {
+  padding-left: 10px;
+}

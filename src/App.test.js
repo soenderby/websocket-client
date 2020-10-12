@@ -26,6 +26,17 @@ describe('App', async assert => {
     });
   }
 
+  {
+    const $ = render(<App/>);
+
+    assert ({
+      given: 'nothing',
+      should: 'Render Pgae component',
+      actual: $('.Page').length,
+      expected: 1
+    });
+  }
+
   // MessageList component
   {
     const $ = render(<App messages={[]}/>);

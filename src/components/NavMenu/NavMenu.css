@@ -1,0 +1,7 @@
+.NavMenu {
+  border-right: solid;
+  border-width: 1px;
+  border-color: gray;
+  height: 100%;
+  margin-right: 5px;
+}
