@@ -1,5 +1,4 @@
 import { describe } from 'riteway';
-
 import { reducer, changePage } from './page-reducer';
 
 describe('page-reducer', async assert => {

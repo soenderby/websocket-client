@@ -1,7 +1,22 @@
 import { describe } from 'riteway';
 import {
-  trace 
+  trace,
+  getEventValue 
 } from './utils';
+
+const createEvent = (value) => ({ target: { value: value }});
+
+describe('getEventValue', async assert => {
+  {
+    const event = createEvent('value');
+    assert({
+      given: 'event',
+      should: 'return event.target.value',
+      actual: getEventValue(event),
+      expected: 'value'
+    });
+  }
+});
 
 describe('trace', async assert => {
   {

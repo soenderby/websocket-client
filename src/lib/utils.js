@@ -1,3 +1,6 @@
+// Returns target.value of synthetic event
+const getEventValue = event => event.target.value;
+
 // Debug function using partial application
 const trace = label => value => {
   console.log(label + ': ' + value);
@@ -9,6 +12,7 @@ const trace = label => value => {
 const curriedMap = fn => mappable => mappable.map(fn);
 
 export {
+  getEventValue,
   trace,
   curriedMap
 }
