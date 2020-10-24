@@ -1,7 +1,7 @@
 // Actions
 const ADD_CHAT_MESSAGE = "CHAT/ADD_CHAT_MESSAGE";
 const CHANGE_MESSAGE_TEXT = "CHAT/CHANGE_MESSAGE_TEXT";
-const SEND_MESSAGE = "SEND_MESSAGE";
+const SEND_MESSAGE = "CHAT/SEND_MESSAGE";
 
 // Action creators
 const addMessage = ({

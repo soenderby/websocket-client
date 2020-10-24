@@ -2,8 +2,8 @@ import React from 'react';
 import './Message.css';
 
 // CSS: Sender and text should be in the same row
-export default ({sender='', text=''}) => 
+export default ({username='', message=''}) => 
   <div className="Message">
-    <p className="SenderName"> { sender } </p>
-    <p className="MessageText"> { text } </p>
+    <p className="SenderName"> { username } </p>
+    <p className="MessageText"> { message } </p>
   </div>

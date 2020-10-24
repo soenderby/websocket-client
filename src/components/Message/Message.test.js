@@ -17,7 +17,7 @@ describe('Message', async assert => {
   
   {
     const message = "Test message";
-    const $ = render(<Message text={message}/>);
+    const $ = render(<Message message={message}/>);
 
     assert ({
       given: 'a message',
@@ -29,7 +29,7 @@ describe('Message', async assert => {
 
   {
     const user = "Test user";
-    const $ = render(<Message sender={user}/>);
+    const $ = render(<Message username={user}/>);
 
     assert ({
       given: 'a sender',
@@ -43,15 +43,15 @@ describe('Message', async assert => {
   // Now there is no reason to remove it.
   {
     const message = {
-      sender: 'Test User',
-      text: 'Test Message'
+      username: 'Test User',
+      message: 'Test Message'
     }
     const $ = render(<Message {...message}/>);
 
     assert ({
       given: 'message passed using object destructuring',
       should: 'render sender and text',
-      actual: Object.assign({}, { sender: $('.SenderName').html().trim() }, { text: $('.MessageText').html().trim() }),
+      actual: Object.assign({}, { username: $('.SenderName').html().trim() }, { message: $('.MessageText').html().trim() }),
       expected: message
     });
   }

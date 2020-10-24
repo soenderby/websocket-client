@@ -2,14 +2,16 @@ import React from 'react';
 import { curriedMap } from '../../lib/utils';
 import Message from '../Message/Message';
 import { connect } from 'react-redux';
-import { addMessage, changeMessage, sendMessage } from '../../reducers/chat-reducer';
+import { addMessage, changeMessageText, sendMessage } from '../../reducers/chat-reducer';
 import ChatInput from '../ChatInput/ChatInput';
+
+import './MessagePage.css';
 
 // The component is also exported, so that it can be tested without having to mock the store
 // Consider refactoring to use react-redux hooks instead. Though it seems hooks encourage a tighter coupling
 // Would make it hard to test, but for a purely container component, that might not be an issue
 export const MessagePage = ({ messages=[], messageText='', changeMessage, onSubmit }) => {
-  const displayMessages = curriedMap(message => <Message { ...message } key={ message.text }/>);
+  const displayMessages = curriedMap(message => <Message {...message} key={ message.message }/>);
   return (
     <div className="MessagePage">
       <div className="MessageList">
@@ -31,10 +33,10 @@ export const MessagePage = ({ messages=[], messageText='', changeMessage, onSubm
   );
 }
 
-const mapStateToProps = state => ({ messages: state.messages, messageText: state.messageText });
+const mapStateToProps = state => ({ messages: state.chat.messages, messageText: state.chat.messageText });
 
 const mapDispatchToProps = dispatch => ({
-  changeMessage: message => dispatch(changeMessage(message)),
+  changeMessage: message => dispatch(changeMessageText(message)),
   onSubmit: () => dispatch(sendMessage())
 });
 

@@ -1,0 +1,13 @@
+.MessagePage {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.ChatInput {
+  position: absolute;
+  bottom: 10px;
+}
+
+.TextInput {
+  
+}
