@@ -1,5 +1,5 @@
 import React from 'react';
-import './Message.css';
+//import './Message.css';
 
 // CSS: Sender and text should be in the same row
 export default ({username='', message=''}) => 

@@ -30,13 +30,13 @@ export default () => {
   // CSS: Many grid items could likely be removed using pure css
   return (
     <Provider store={store}>
-      <Grid className="App" container >
-        <Grid item>
+      <Grid className="App" container style={{ height: '97vh', width: '99vw'}}>
+        <Grid item xs={2.5}>
           <NavMenu buttons={ buttons }/>
         </Grid>
-        <Grid item>
-          <Page>
-            <p>{ "Hello World!" }</p>
+        <Grid item xs flex={1} >
+          <Page style={{ position: 'relative', width: 'fit-content'}}>
+            <h2>{ "Chat page" }</h2>
             <MessagePage />
           </Page>
         </Grid>

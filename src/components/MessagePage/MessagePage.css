@@ -1,13 +1,17 @@
 .MessagePage {
-  max-width: 1000px;
-  width: 100%;
+  display: 'flex';
+  flex-Direction: 'column';
+  min-Height: '100vh';
 }
 
 .ChatInput {
-  position: absolute;
-  bottom: 10px;
+
 }
 
 .TextInput {
+  
+}
+
+.MessageList {
   
 }

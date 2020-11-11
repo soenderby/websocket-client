@@ -1,17 +1,22 @@
 import React from 'react';
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { List, ListItem, ListItemText, ButtonGroup, Button } from '@material-ui/core';
 import './NavMenu.css';
 
 export default ({ buttons=[], onClick }) => 
-  <div className="NavMenu">
-    <List>
+  <div className="NavMenu" style={{ height: '100%'}}>
+    <ButtonGroup
+      orientation="vertical"
+      color="primary"
+      aria-label="vertical contained primary button group"
+      variant="text"
+      >
       {
         buttons.map((button, index) => (
-          <ListItem button className="NavButton" key={index} onClick={onClick}>
-            <ListItemText primary={ button } />
-          </ListItem>
+          <Button className="NavButton" key={index} onClick={onClick}>
+            { button }
+          </Button>
           )
         )
       }
-    </List>
+    </ButtonGroup>
   </div>
